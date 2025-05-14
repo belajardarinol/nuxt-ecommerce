@@ -18,35 +18,35 @@ export default {
       lang: 'en'
     },
     meta: [{
-        charset: 'utf-8'
-      },
-      {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1'
-      },
-      {
-        hid: 'description',
-        name: 'description',
-        content: ''
-      }
+      charset: 'utf-8'
+    },
+    {
+      name: 'viewport',
+      content: 'width=device-width, initial-scale=1'
+    },
+    {
+      hid: 'description',
+      name: 'description',
+      content: ''
+    }
     ],
     link: [{
-        rel: 'icon',
-        type: 'image/x-icon',
-        href: '/images/logo.png'
-      },
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap'
-      },
-      {
-        rel: 'stylesheet',
-        href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'
-      },
+      rel: 'icon',
+      type: 'image/x-icon',
+      href: '/images/logo.png'
+    },
+    {
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap'
+    },
+    {
+      rel: 'stylesheet',
+      href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'
+    },
     ],
     script: [
-      { src: '/js/coreui.bundle.min.js' }, 
-      { src: 'https://app.sandbox.midtrans.com/snap/snap.js', 'data-client-key': 'SB-Mid-client-bWcHM3-QSyGV2hhw' }, 
+      { src: '/js/coreui.bundle.min.js' },
+      { src: 'https://app.sandbox.midtrans.com/snap/snap.js', 'data-client-key': 'SB-Mid-client-bWcHM3-QSyGV2hhw' },
     ]
   },
 
@@ -84,73 +84,73 @@ export default {
 
   auth: {
     strategies: {
-  
-        //strategy "admin"
-        admin: {
-          scheme: 'local',
-          token: {
-            property: 'token',
-            required: true,
-            type: 'Bearer'
+
+      //strategy "admin"
+      admin: {
+        scheme: 'local',
+        token: {
+          property: 'token',
+          required: true,
+          type: 'Bearer'
+        },
+        user: {
+          property: 'user',
+          // autoFetch: true
+        },
+        endpoints: {
+          login: {
+            url: '/api/admin/login',
+            method: 'post',
+            propertyName: 'token'
+          },
+          logout: {
+            url: '/api/admin/logout',
+            method: 'post'
           },
           user: {
-            property: 'user',
-            // autoFetch: true
-          },
-          endpoints: {
-            login: {
-              url: '/api/admin/login',
-              method: 'post',
-              propertyName: 'token'
-            },
-            logout: {
-              url: '/api/admin/logout',
-              method: 'post'
-            },
-            user: {
-              url: '/api/admin/user',
-              method: 'get',
-              propertyName: 'user'
-            }
-          },
+            url: '/api/admin/user',
+            method: 'get',
+            propertyName: 'user'
+          }
         },
-  
-        //strategy "customer"
-        customer: {
-          scheme: 'local',
-          token: {
-            property: 'token',
-            required: true,
-            type: 'Bearer'
+      },
+
+      //strategy "customer"
+      customer: {
+        scheme: 'local',
+        token: {
+          property: 'token',
+          required: true,
+          type: 'Bearer'
+        },
+        user: {
+          property: 'user',
+          // autoFetch: true
+        },
+        endpoints: {
+          login: {
+            url: '/api/customer/login',
+            method: 'post',
+            propertyName: 'token'
+          },
+          logout: {
+            url: '/api/customer/logout',
+            method: 'post'
           },
           user: {
-            property: 'user',
-            // autoFetch: true
-          },
-          endpoints: {
-            login: {
-              url: '/api/customer/login',
-              method: 'post',
-              propertyName: 'token'
-            },
-            logout: {
-              url: '/api/customer/logout',
-              method: 'post'
-            },
-            user: {
-              url: '/api/customer/user',
-              method: 'get',
-              propertyName: 'user'
-            }
-          },
+            url: '/api/customer/user',
+            method: 'get',
+            propertyName: 'user'
+          }
         },
-  
+      },
+
     },
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'https://sourcecode.failamir.tech'
+    baseURL: 'https://api.tukuherbal.online'
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
